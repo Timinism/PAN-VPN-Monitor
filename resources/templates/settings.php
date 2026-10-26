@@ -95,6 +95,7 @@ $devices = $settings['devices'] ?? [];
         <p class="pv-help">Runs <code>show vpn flow</code> and reports how many site-to-site tunnels came back. A blank key tests the saved key.</p>
         <form method="post" action="<?= $h((string) $vm['test_action']) ?>">
             <input type="hidden" name="_token" value="<?= $h((string) ($vm['csrf'] ?? '')) ?>">
+            <input type="hidden" name="panos_vpn_test" value="1">
             <div class="pv-form-grid">
                 <label>Device
                     <select name="device_id" style="width:100%; padding:8px; border:1px solid var(--line); border-radius:6px; font:inherit;">
