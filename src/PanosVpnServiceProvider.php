@@ -15,6 +15,7 @@ use LibreNmsPlugin\PanosVpn\Hooks\DeviceOverview;
 use LibreNmsPlugin\PanosVpn\Hooks\MenuEntry;
 use LibreNmsPlugin\PanosVpn\Hooks\Page;
 use LibreNmsPlugin\PanosVpn\Hooks\Settings;
+use LibreNmsPlugin\PanosVpn\Http\SettingsSync;
 use LibreNmsPlugin\PanosVpn\Listeners\PollAfterDevice;
 
 class PanosVpnServiceProvider extends ServiceProvider
@@ -31,6 +32,13 @@ class PanosVpnServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         if ($this->app->runningInConsole()) {
             $this->commands([PollCommand::class]);
+        }
+
+        $this->app->booted(function (): void {
+            $this->app['router']->pushMiddlewareToGroup('web', SettingsSync::class);
+        });
+        if (class_exists(\App\Models\Plugin::class)) {
+            \App\Models\Plugin::saving([SettingsSync::class, 'normalize']);
         }
 
         if (! $pluginManager->pluginEnabled($pluginName)) {

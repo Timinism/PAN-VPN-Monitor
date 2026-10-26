@@ -36,8 +36,8 @@ final class Pages
     public static function settings(array $settings, array $devices, ?string $notice): string
     {
         return Html::settings([
-            'action' => url('plugin/panos-vpn/settings'),
-            'test_action' => url('plugin/panos-vpn/test'),
+            'action' => url('plugin/settings/panos-vpn'),
+            'test_action' => url('plugin/settings/panos-vpn'),
             'csrf' => function_exists('csrf_token') ? csrf_token() : '',
             'notice' => $notice,
             'settings' => $settings,
