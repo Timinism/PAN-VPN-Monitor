@@ -1,0 +1,516 @@
+PAN-COMMON-MIB | SNMP objects, OIDs and tables
+
+# PAN-COMMON-MIB
+
+```
+        
+A MIB module containing definitions of managed objects
+implemented by all Palo Alto Networks' products.
+    
+```
+
+ Observium actively monitors this MIB 
+
+ Observium uses this MIB in discovery or polling workflows on applicable devices. 
+
+Source file
+
+`PAN-COMMON-MIB`
+
+Last revised
+
+ 4 Sep 2014, 00:00 UTC 
+
+Identity
+
+`panCommonMibModule`
+
+Base OID
+
+`1.3.6.1.4.1.25461.1.1.3`
+
+##### Imported Objects
+
+| PAN-GLOBAL-REG | panCommonMib panModules |
+| --- | --- |
+| PAN-GLOBAL-TC | TcChassisType |
+| POWER-ETHERNET-MIB | pethPsePortGroupIndex pethPsePortIndex |
+| SNMPv2-SMI | Counter32 Integer32 MODULE-IDENTITY (no object page) NOTIFICATION-TYPE (no object page) OBJECT-IDENTITY (no object page) OBJECT-TYPE (no object page) |
+| SNMPv2-TC | DisplayString TEXTUAL-CONVENTION (no object page) TimeStamp TruthValue |
+
+ Net-SNMP examples using the paloalto MIB directory Show commands 
+
+ These commands use the standard Observium installation path and load the selected MIB variant before the RFC and Net-SNMP directories. 
+
+Translate the module identity
+
+`/usr/bin/snmptranslate -Pud -Ir -On -m 'PAN-COMMON-MIB' -M '/opt/observium/mibs/paloalto:/opt/observium/mibs/rfc:/opt/observium/mibs/net-snmp' 'PAN-COMMON-MIB::panCommonMibModule'`
+
+Copy
+
+Walk the MIB subtree
+
+`/usr/bin/snmpbulkwalk -v2c -c ' ' -Pud -Ir -OQUs -m 'PAN-COMMON-MIB' -M '/opt/observium/mibs/paloalto:/opt/observium/mibs/rfc:/opt/observium/mibs/net-snmp' 'udp::161' 'PAN-COMMON-MIB::panCommonMibModule'`
+
+Copy
+
+ How SNMP, Net-SNMP, MIB paths, and variants work 
+
+##### Objects (373)
+
+Object legend
+
+ Table Row Column Scalar Node 
+
+ Object type Icons distinguish tables, entry rows, columns, scalars, and structural nodes. 
+
+ SNMPv2-TC TruthValue 
+
+ Syntax Blue badges identify the value syntax. Connected badges read as defining module and convention. 
+
+ IF-MIB ifIndex 
+
+ Table index Green identifies an index object; yellow names its module when the index is defined elsewhere. 
+
+ r/w deprecated obsolete 
+
+ Access and status `r/w` means read-write. Grey labels mark definitions retained for compatibility. 
+
+ OBS ✓ 
+
+ Observium use The indicator appears only when Observium directly references that object. 
+
+ ifOperStatus `.1.3.6.1.2.1…` 
+
+ Names and OIDs Object names link to their detail pages. Hover or focus a linked name or badge for available definition details. 
+
+| panCommonMibModule | | `.1.3.6.1.4.1.25461.1.1.3` |
+| --- | --- | --- |
+| panCommonConfMib | | `.1.3.6.1.4.1.25461.2.1.1` |
+| panCommonObjs | | `.1.3.6.1.4.1.25461.2.1.2` |
+| panSys | | `.1.3.6.1.4.1.25461.2.1.2.1` |
+| panSysSwVersion OBS ✓ | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.1` |
+| panSysUrlFilteringVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.10` |
+| panSysHAState OBS ✓ | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.11` |
+| panSysHAPeerState OBS ✓ | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.12` |
+| panSysHAMode OBS ✓ | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.13` |
+| panSysUrlFilteringDatabase | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.14` |
+| panSysGlobalProtectClientVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.15` |
+| panSysOpswatDatafileVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.16` |
+| panSysWildfireVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.17` |
+| panSysWildfirePrivateCloudVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.18` |
+| panGlobalCounters | | `.1.3.6.1.4.1.25461.2.1.2.1.19` |
+| panAhoSw | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.1` |
+| panGlobalCountersIPFragmentationCounters | | `.1.3.6.1.4.1.25461.2.1.2.1.19.10` |
+| panFlowIpfragFragErr | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.10.1` |
+| panFlowIpfragRecv | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.10.2` |
+| panGlobalCountersTCPState | | `.1.3.6.1.4.1.25461.2.1.2.1.19.11` |
+| panTcpAllocWqeFailed | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.11.1` |
+| panTcpDeny | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.11.2` |
+| panTcpDropOutOfWnd | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.11.3` |
+| panTcpDropPacket | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.11.4` |
+| panFlowActionClose | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.11.5` |
+| panFlowActionReset | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.11.6` |
+| panFlowTcpNonSyn | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.11.7` |
+| panTcpExceedSegLimit | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.11.8` |
+| panGlobalCountersTunnelInspect | | `.1.3.6.1.4.1.25461.2.1.2.1.19.12` |
+| panFlowTciGreDecapSuccess | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.1` |
+| panFlowTciGreDecapFailed | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.2` |
+| panFlowTciGreDecapUnknown | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.3` |
+| panFlowTciIpsecDecapSuccess | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.4` |
+| panFlowTciIpsecDecapFailed | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.5` |
+| panFlowTciIpsecDecapUnknown | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.6` |
+| panFlowTciGtpDecapSuccess | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.7` |
+| panFlowTciGtpDecapFailed | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.8` |
+| panFlowTciGtpDecapUnknown | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.12.9` |
+| panDfaSw | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.2` |
+| panFlowHostServiceAllow | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.3` |
+| panHaPathmonSent | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.4` |
+| panAhoFpga | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.5` |
+| panDfaFpga | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.6` |
+| panFpgaPkt | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.7` |
+| panGlobalCountersDOSCounters | | `.1.3.6.1.4.1.25461.2.1.2.1.19.8` |
+| panFlowDosAgMaxSessLimit | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.1` |
+| panFlowPolicyDeny | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.10` |
+| panFlowPolicyNat | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.11` |
+| panFlowScanDrop | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.12` |
+| panFlowDosDropIpBlocked | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.13` |
+| panFlowDosRedIcmp | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.14` |
+| panFlowDosRedIcmp6 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.15` |
+| panFlowDosRedIp | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.16` |
+| panFlowDosRedTcp | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.17` |
+| panFlowDosRedUdp | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.18` |
+| panFlowDosRuleAgBlkDur | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.19` |
+| panFlowDosBlkNumEntries | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.2` |
+| panFlowDosRuleAgRedAct | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.20` |
+| panFlowDosRuleAgRedMax | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.21` |
+| panFlowDosRuleDeny | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.22` |
+| panFlowDosRuleDrop | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.23` |
+| panFlowDosRuleDropAggr | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.24` |
+| panFlowDosRuleDropClBlkDur | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.25` |
+| panFlowDosRuleDropClRedAct | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.26` |
+| panFlowDosRuleDropClRedMax | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.27` |
+| panFlowDosRuleDropClassified | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.28` |
+| panFlowDosSyncookieBlkDur | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.29` |
+| panFlowDosClMaxSessLimit | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.3` |
+| panFlowDosSyncookieMax | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.30` |
+| panFlowDosZoneRedAct | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.31` |
+| panFlowDosZoneRedMax | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.32` |
+| panFlowDosBlkSwEntries | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.33` |
+| panFlowDosBlkHwEntries | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.34` |
+| panFlowDosSyncookieNotTcpSyn | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.35` |
+| panFlowDosSyncookieNotTcpSynAck | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.36` |
+| panFlowDosPfIpspoof | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.37` |
+| panFlowDosPfIpfrag | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.38` |
+| panFlowDosPfPing0 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.39` |
+| panFlowDosClSyncookieAckErr | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.4` |
+| panFlowDosPfIcmpfrag | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.40` |
+| panFlowDosPfIcmplpkt | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.41` |
+| panFlowDosPfIcmperr | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.42` |
+| panFlowDosPfNoreplyttl | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.43` |
+| panFlowDosPfNoreplyneedfrag | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.44` |
+| panFlowDosPfStrictsource | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.45` |
+| panFlowDosPfLoosesource | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.46` |
+| panFlowDosPfTimestamp | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.47` |
+| panFlowDosPfRecordroute | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.48` |
+| panFlowDosPfSecurity | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.49` |
+| panFlowDosClSyncookieAckRcv | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.5` |
+| panFlowDosPfSatnetid | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.50` |
+| panFlowDosPfUnknown | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.51` |
+| panFlowDosPfBadoption | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.52` |
+| panFlowDosPfTcpoverlappingmismatch | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.53` |
+| panFlowDosPfStrictip | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.54` |
+| panFlowDosPfTcpsplithandshake | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.55` |
+| panFlowDosPfTcpsyndata | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.56` |
+| panFlowDosPfTcpsynackdata | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.57` |
+| panFlowDosIp6Route0 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.58` |
+| panFlowDosIp6Route1 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.59` |
+| panFlowDosClSyncookieBlkDur | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.6` |
+| panFlowDosIp6Route3 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.60` |
+| panFlowDosIp6Route4to252 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.61` |
+| panFlowDosIp6Route253 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.62` |
+| panFlowDosIp6Route254 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.63` |
+| panFlowDosIp6Route255 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.64` |
+| panFlowDosIp6Ip4cmpt | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.65` |
+| panFlowDosIp6Acast | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.66` |
+| panFlowDosIp6OptionsInvalidIPv6 | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.67` |
+| panFlowDosIp6Icmpv6ErrorInvalid | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.68` |
+| panFlowDosIp6NeedlessIpv6FragHdr | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.69` |
+| panFlowDosClSyncookieMax | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.7` |
+| panFlowDosIp6RsvdSet | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.70` |
+| panFlowDosIPv6ExtHdrHopByHop | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.71` |
+| panFlowDosip6IPv6ExtHdrRouting | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.72` |
+| panFlowDosIp6IPv6ExtHdrDestOpt | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.73` |
+| panFlowDosPbpDrop | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.74` |
+| panFlowDosCurrSessIncrFailed | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.75` |
+| panFlowDosCurrSessDecrFailed | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.76` |
+| panFlowDosClSyncookieSent | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.8` |
+| panFlowMeterVsysThrottle | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.8.9` |
+| panGlobalCountersDropCounters | | `.1.3.6.1.4.1.25461.2.1.2.1.19.9` |
+| panFlowFwdL3TtlZero | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.9.1` |
+| panFlowMeterHostThrottle | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.9.2` |
+| panFlowHostServiceDeny | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.9.3` |
+| panFlowHostServiceUnknown | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.9.4` |
+| panPktAllocFailure | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.9.5` |
+| panPktAllocFailureCos | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.9.6` |
+| panSessionDiscard | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.1.19.9.7` |
+| panSysHwVersion OBS ✓ | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.2` |
+| panSysAppReleaseDate | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.20` |
+| panSysThreatReleaseDate | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.21` |
+| panSysAvReleaseDate | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.22` |
+| panSysWfReleaseDate | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.23` |
+| panSysSerialNumber OBS ✓ | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.3` |
+| panSysTimeZoneOffset | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.1.4` |
+| panSysDaylightSaving | SNMPv2-TC TruthValue | `.1.3.6.1.4.1.25461.2.1.2.1.5` |
+| panSysVpnClientVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.6` |
+| panSysAppVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.7` |
+| panSysAvVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.8` |
+| panSysThreatVersion | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.1.9` |
+| panWFMonitor | | `.1.3.6.1.4.1.25461.2.1.2.10` |
+| panWFMonitorQStatusTable | | `.1.3.6.1.4.1.25461.2.1.2.10.1` |
+| panWFMonitorQStatusEntry | index | `.1.3.6.1.4.1.25461.2.1.2.10.1.1` |
+| index | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.10.1.1.1` |
+| name | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.10.1.1.2` |
+| archiveCount | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.1.1.3` |
+| docCount | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.1.1.4` |
+| elinkCount | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.1.1.5` |
+| portExecCount | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.1.1.6` |
+| urlUploadFileCount | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.1.1.7` |
+| panWFMonitorArchiveUtilizationTable | | `.1.3.6.1.4.1.25461.2.1.2.10.2` |
+| panWFMonitorArchiveUtilizationEntry | index | `.1.3.6.1.4.1.25461.2.1.2.10.2.1` |
+| index | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.10.2.1.1` |
+| name | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.10.2.1.2` |
+| available | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.2.1.3` |
+| inUse | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.2.1.4` |
+| panWFMonitorDocUtilizationTable | | `.1.3.6.1.4.1.25461.2.1.2.10.3` |
+| panWFMonitorDocUtilizationEntry | index | `.1.3.6.1.4.1.25461.2.1.2.10.3.1` |
+| index | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.10.3.1.1` |
+| name | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.10.3.1.2` |
+| available | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.3.1.3` |
+| inUse | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.3.1.4` |
+| panWFMonitorElinkUtilizationTable | | `.1.3.6.1.4.1.25461.2.1.2.10.4` |
+| panWFMonitorElinkUtilizationEntry | index | `.1.3.6.1.4.1.25461.2.1.2.10.4.1` |
+| index | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.10.4.1.1` |
+| name | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.10.4.1.2` |
+| available | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.4.1.3` |
+| inUse | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.4.1.4` |
+| panWFMonitorPortableExecUtilizationTable | | `.1.3.6.1.4.1.25461.2.1.2.10.5` |
+| panWFMonitorPortableExecUtilizationEntry | index | `.1.3.6.1.4.1.25461.2.1.2.10.5.1` |
+| index | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.10.5.1.1` |
+| name | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.10.5.1.2` |
+| available | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.5.1.3` |
+| inUse | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.10.5.1.4` |
+| panhrStorage | | `.1.3.6.1.4.1.25461.2.1.2.12` |
+| panhrStorageTypes | | `.1.3.6.1.4.1.25461.2.1.2.12.1` |
+| panhrStorageOther | | `.1.3.6.1.4.1.25461.2.1.2.12.1.1` |
+| panhrStorageNetworkDisk | | `.1.3.6.1.4.1.25461.2.1.2.12.1.10` |
+| panhrStorageRam | | `.1.3.6.1.4.1.25461.2.1.2.12.1.2` |
+| panhrStorageVirtualMemory | | `.1.3.6.1.4.1.25461.2.1.2.12.1.3` |
+| panhrStorageFixedDisk | | `.1.3.6.1.4.1.25461.2.1.2.12.1.4` |
+| panhrStorageRemovableDisk | | `.1.3.6.1.4.1.25461.2.1.2.12.1.5` |
+| panhrStorageFloppyDisk | | `.1.3.6.1.4.1.25461.2.1.2.12.1.6` |
+| panhrStorageCompactDisc | | `.1.3.6.1.4.1.25461.2.1.2.12.1.7` |
+| panhrStorageRamDisk | | `.1.3.6.1.4.1.25461.2.1.2.12.1.8` |
+| panhrStorageFlashMemory | | `.1.3.6.1.4.1.25461.2.1.2.12.1.9` |
+| panhrMemorySize | KBytes | `.1.3.6.1.4.1.25461.2.1.2.12.2` |
+| panpaCluster | | `.1.3.6.1.4.1.25461.2.1.2.13` |
+| panPAClusterSummaryEntryNodeid | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.13.1` |
+| panPAClusterLocalSessStatsEntryMax | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.13.10` |
+| panPAClusterSummaryEntrymode | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.13.2` |
+| panPAClusterSummaryEntrySerialNumber | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.13.3` |
+| panPAClusterSummaryEntrynodeStatus | Enumeration | `.1.3.6.1.4.1.25461.2.1.2.13.4` |
+| panPAClusterUtilizationEntrythroughput | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.13.5` |
+| panPAClusterUtilizationEntryconnPerSec | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.13.6` |
+| panPAClusterUtilizationEntrysessions | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.13.7` |
+| panPAClusterUtilizationEntryLPS | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.13.8` |
+| panPAClusterLocalSessStatsEntryActive | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.13.9` |
+| panChassis | | `.1.3.6.1.4.1.25461.2.1.2.2` |
+| panChassisType OBS ✓ | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.2.1` |
+| panMSeriesMode | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.2.2` |
+| panSession | | `.1.3.6.1.4.1.25461.2.1.2.3` |
+| panSessionUtilization | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.1` |
+| panZoneTable | | `.1.3.6.1.4.1.25461.2.1.2.3.10` |
+| panZoneEntry | panZoneName panVsysId | `.1.3.6.1.4.1.25461.2.1.2.3.10.1` |
+| panZoneName | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.3.10.1.1` |
+| panZoneActiveTcpCps | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.3.10.1.2` |
+| panZoneActiveUdpCps | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.3.10.1.3` |
+| panZoneActiveOtherIpCps | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.3.10.1.4` |
+| panIfTable | | `.1.3.6.1.4.1.25461.2.1.2.3.11` |
+| panIfEntry | panIfIndex | `.1.3.6.1.4.1.25461.2.1.2.3.11.1` |
+| panIfIndex | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.3.11.1.1` |
+| panIfDescr | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.3.11.1.2` |
+| panIfActiveTcpCps | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.3.11.1.3` |
+| panIfActiveUdpCps | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.3.11.1.4` |
+| panIfActiveOtherIpCps | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.3.11.1.5` |
+| panSessionCps | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.12` |
+| panPethPsePortTable | | `.1.3.6.1.4.1.25461.2.1.2.3.13` |
+| panPethPseEntry | POWER-ETHERNET-MIB pethPsePortGroupIndex POWER-ETHERNET-MIB pethPsePortIndex | `.1.3.6.1.4.1.25461.2.1.2.3.13.1` |
+| panPethPsePortPowerSignalClassification | PowerClassification | `.1.3.6.1.4.1.25461.2.1.2.3.13.1.1` |
+| panPethPsePortPowerSpareClassification | PowerClassification | `.1.3.6.1.4.1.25461.2.1.2.3.13.1.2` |
+| panSessionMax | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.2` |
+| panSessionActive OBS ✓ | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.3` |
+| panSessionActiveTcp | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.4` |
+| panSessionActiveUdp | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.5` |
+| panSessionActiveICMP | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.6` |
+| panSessionActiveSslProxy | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.7` |
+| panSessionSslProxyUtilization | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.8` |
+| panVsysTable | | `.1.3.6.1.4.1.25461.2.1.2.3.9` |
+| panVsysEntry | panVsysId | `.1.3.6.1.4.1.25461.2.1.2.3.9.1` |
+| panVsysId | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.9.1.1` |
+| panVsysName | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.3.9.1.2` |
+| panVsysSessionUtilizationPct | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.9.1.3` |
+| panVsysActiveSessions | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.9.1.4` |
+| panVsysMaxSessions | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.9.1.5` |
+| panVsysActiveTcpCps | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.9.1.6` |
+| panVsysActiveUdpCps | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.9.1.7` |
+| panVsysActiveOtherIpCps | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.3.9.1.8` |
+| panMgmt | | `.1.3.6.1.4.1.25461.2.1.2.4` |
+| panMgmtPanoramaConnected | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.4.1` |
+| panMgmtPanorama2Connected | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.4.2` |
+| panMgmtNumAdminSessions | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.4.3` |
+| panGlobalProtect | | `.1.3.6.1.4.1.25461.2.1.2.5` |
+| panGPGatewayUtilization | | `.1.3.6.1.4.1.25461.2.1.2.5.1` |
+| panGPGWUtilizationPct | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.5.1.1` |
+| panGPGWUtilizationMaxTunnels | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.5.1.2` |
+| panGPGWUtilizationActiveTunnels OBS ✓ | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.5.1.3` |
+| panLogCollector | | `.1.3.6.1.4.1.25461.2.1.2.6` |
+| panLcStat | | `.1.3.6.1.4.1.25461.2.1.2.6.1` |
+| panLcLogRate | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.1` |
+| panLcLogDuration deprecated | | `.1.3.6.1.4.1.25461.2.1.2.6.1.2` |
+| panLcLogDurationTraffic deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.1` |
+| panLcLogDurationHipmatch deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.10` |
+| panLcLogDurationUserid deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.11` |
+| panLcLogDurationConfig deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.2` |
+| panLcLogDurationSystem deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.3` |
+| panLcLogDurationThreat deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.4` |
+| panLcLogDurationAppstat deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.5` |
+| panLcLogDurationTrsum deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.6` |
+| panLcLogDurationThsum deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.7` |
+| panLcLogDurationEvent deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.8` |
+| panLcLogDurationAlarm deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.2.9` |
+| panLcDiskUsageTable deprecated | | `.1.3.6.1.4.1.25461.2.1.2.6.1.3` |
+| panLcDiskUsageEntry deprecated | panLcDiskUsageId | `.1.3.6.1.4.1.25461.2.1.2.6.1.3.1` |
+| panLcDiskUsageId deprecated | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.3.1.1` |
+| panLcDiskUsage deprecated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.3.1.2` |
+| panLcLogUsageTable | | `.1.3.6.1.4.1.25461.2.1.2.6.1.4` |
+| panLcLogUsageEntry | panLcLogType | `.1.3.6.1.4.1.25461.2.1.2.6.1.4.1` |
+| panLcLogType | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.1.4.1.1` |
+| panLcDiskUsageDiskSpacePct | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.1.4.1.2` |
+| panLcDiskUsageRetention | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.4.1.3` |
+| panLcDiskQuotaPct | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.1.4.1.4` |
+| panLocalLogUsageTable | | `.1.3.6.1.4.1.25461.2.1.2.6.1.5` |
+| panLocalLogUsageEntry | panLcLogType | `.1.3.6.1.4.1.25461.2.1.2.6.1.5.1` |
+| panLocalLogType | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.1.5.1.1` |
+| panLocalDiskUsageDiskSpace | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.1.5.1.2` |
+| panLocalDiskUsageRetention | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.1.5.1.3` |
+| panLocalDiskQuota | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.1.5.1.4` |
+| panLocalDiskQuotaPct | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.1.5.1.5` |
+| panLcDiskIOPSTable | | `.1.3.6.1.4.1.25461.2.1.2.6.1.6` |
+| panLcDiskIOPSEntry | panLcDiskIOPSId | `.1.3.6.1.4.1.25461.2.1.2.6.1.6.1` |
+| panLcDiskIOPSId | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.1.6.1.1` |
+| panLcDiskIORead5min | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.6.1.6.1.2` |
+| panLcDiskIOWrite5min | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.6.1.6.1.3` |
+| panLcIsRedundancyMember | SNMPv2-TC TruthValue | `.1.3.6.1.4.1.25461.2.1.2.6.2` |
+| panLcLogFwdStatsTable | | `.1.3.6.1.4.1.25461.2.1.2.6.3` |
+| panLcLogFwdStatsEntry | panLcLogFwdStatsTableType | `.1.3.6.1.4.1.25461.2.1.2.6.3.1` |
+| panLcLogFwdStatsTableType | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.3.1.1` |
+| panLcLogFwdStatsTableEnqueueCount | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.6.3.1.2` |
+| panLcLogFwdStatsTableSendCount | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.6.3.1.3` |
+| panLcLogFwdStatsTableDropCount | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.6.3.1.4` |
+| panLcLogFwdStatsTableQueueDepth | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.6.3.1.5` |
+| panLcLoggingConnectedDeviceTable | | `.1.3.6.1.4.1.25461.2.1.2.6.4` |
+| panLcLoggingConnectedDeviceEntry | panLcLoggingConnectedDeviceConnectionId | `.1.3.6.1.4.1.25461.2.1.2.6.4.1` |
+| panLcLoggingConnectedDeviceName | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.4.1.1` |
+| panLcLoggingConnectedDeviceConnectionId | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.4.1.2` |
+| panLcLoggingConnectedIdLogRate | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.6.4.1.3` |
+| panLcLoggingDeviceTable | | `.1.3.6.1.4.1.25461.2.1.2.6.5` |
+| panLcLoggingDeviceEntry | panLcLoggingDeviceConnectionId panLcLoggingLogType | `.1.3.6.1.4.1.25461.2.1.2.6.5.1` |
+| panLcLoggingDeviceConnectionId | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.5.1.1` |
+| panLcLoggingLogType | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.6.5.1.2` |
+| panLcLogTypeLastLogRecd | SNMPv2-TC TimeStamp | `.1.3.6.1.4.1.25461.2.1.2.6.5.1.3` |
+| panLcLogTypeLastSeqNumRecd | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.6.5.1.4` |
+| panLcLogTypeLastLogGen | SNMPv2-TC TimeStamp | `.1.3.6.1.4.1.25461.2.1.2.6.5.1.5` |
+| panDeviceLogging | | `.1.3.6.1.4.1.25461.2.1.2.7` |
+| panDeviceLoggingLogRate | | `.1.3.6.1.4.1.25461.2.1.2.7.1` |
+| panDeviceIncomingLogRate | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.7.1.1` |
+| panDeviceWriteLogRate | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.7.1.2` |
+| panDeviceLoggingLogTypeStatTable | | `.1.3.6.1.4.1.25461.2.1.2.7.2` |
+| panDeviceLoggingLogTypeStatEntry | panDeviceLoggingDeviceIndex panDeviceLoggingDevice | `.1.3.6.1.4.1.25461.2.1.2.7.2.1` |
+| panDeviceLoggingDevice | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.2.1.1` |
+| panDeviceLoggingDeviceIndex | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.7.2.1.2` |
+| panDeviceLoggingLogType | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.2.1.3` |
+| panDeviceLoggingLogLastLogCreated | SNMPv2-TC TimeStamp | `.1.3.6.1.4.1.25461.2.1.2.7.2.1.4` |
+| panDeviceLoggingLogLastLogFwded | SNMPv2-TC TimeStamp | `.1.3.6.1.4.1.25461.2.1.2.7.2.1.5` |
+| panDeviceLoggingLogLastSeqNumberFwded | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.2.1.6` |
+| panDeviceLoggingLogLastSeqNumberAck | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.2.1.7` |
+| panDeviceLoggingLogTotalLogsFwded | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.2.1.8` |
+| panDeviceLoggingLogUsageTable | | `.1.3.6.1.4.1.25461.2.1.2.7.3` |
+| panDeviceLoggingLogUsageEntry | panDeviceLoggingLogUsageLogType | `.1.3.6.1.4.1.25461.2.1.2.7.3.1` |
+| panDeviceLoggingLogUsageLogType | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.3.1.1` |
+| panDeviceLoggingDiskUsageDiskSpace | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.3.1.2` |
+| panDeviceLoggingDiskUsageRetention | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.7.3.1.3` |
+| panDeviceLoggingDiskQuotaPct | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.3.1.4` |
+| panDeviceLoggingDiskQuota | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.3.1.5` |
+| panDeviceLoggingExtFwd | | `.1.3.6.1.4.1.25461.2.1.2.7.4` |
+| panDeviceLoggingExtFwdCount deprecated | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.4.1` |
+| panDeviceLoggingExtFwdQueueDrop deprecated | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.4.2` |
+| panDeviceLoggingExtFwdStatsSendErr deprecated | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.4.3` |
+| panDeviceLoggingExtFwdStatsTable | | `.1.3.6.1.4.1.25461.2.1.2.7.4.4` |
+| panDeviceLoggingExtFwdStatsEntry | panDeviceLoggingExtFwdStatsTableType | `.1.3.6.1.4.1.25461.2.1.2.7.4.4.1` |
+| panDeviceLoggingExtFwdStatsTableType | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.4.4.1.1` |
+| panDeviceLoggingExtFwdStatsTableEnqueueCount | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.4.4.1.2` |
+| panDeviceLoggingExtFwdStatsTableSendCount | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.4.4.1.3` |
+| panDeviceLoggingExtFwdStatsTableDropCount | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.4.4.1.4` |
+| panDeviceLoggingExtFwdStatsTableQueueDepth | SNMPv2-SMI Counter64 | `.1.3.6.1.4.1.25461.2.1.2.7.4.4.1.5` |
+| panDeviceLoggingExtFwdStatsTable1minAvgSendRate | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.7.4.4.1.6` |
+| panDeviceLoggingCollectorConnectionTable | | `.1.3.6.1.4.1.25461.2.1.2.7.5` |
+| panDeviceLoggingCollectorConnectionEntry | panDeviceLoggingCollectorConnectionIP | `.1.3.6.1.4.1.25461.2.1.2.7.5.1` |
+| panDeviceLoggingCollectorConnectionType | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.5.1.1` |
+| panDeviceLoggingCollectorConnectionIP | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.5.1.2` |
+| panDeviceLoggingCollectorConnectionHostname | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.5.1.3` |
+| panDeviceLoggingCollectorConnectionStatus | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.7.5.1.4` |
+| panPacketBroker | | `.1.3.6.1.4.1.25461.2.1.2.8` |
+| panPacketBrokerStatsTable | | `.1.3.6.1.4.1.25461.2.1.2.8.1` |
+| panPacketBrokerStatsEntry | index | `.1.3.6.1.4.1.25461.2.1.2.8.1.1` |
+| index | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.8.1.1.1` |
+| chainName | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.8.1.1.2` |
+| avgLatency | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.8.1.1.3` |
+| sessionCount | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.8.1.1.4` |
+| panHACluster | | `.1.3.6.1.4.1.25461.2.1.2.9` |
+| panHAClusterLocalSessStatsTable | | `.1.3.6.1.4.1.25461.2.1.2.9.1` |
+| panHAClusterLocalSessStatsEntry | index | `.1.3.6.1.4.1.25461.2.1.2.9.1.1` |
+| index | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.9.1.1.1` |
+| serialNumber | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.9.1.1.2` |
+| cacheCurrentTotal | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.9.1.1.3` |
+| cacheMax | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.9.1.1.4` |
+| tableActive | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.9.1.1.5` |
+| tableMax | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.9.1.1.6` |
+| panHAClusterSessStatsTable | | `.1.3.6.1.4.1.25461.2.1.2.9.2` |
+| panHAClusterSessStatsEntry | index | `.1.3.6.1.4.1.25461.2.1.2.9.2.1` |
+| index | SNMPv2-SMI Integer32 | `.1.3.6.1.4.1.25461.2.1.2.9.2.1.1` |
+| serialNumber | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.2.9.2.1.2` |
+| cacheCurrent | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.9.2.1.3` |
+| cacheAccumulated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.9.2.1.4` |
+| cacheCurrentPromoted | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.9.2.1.5` |
+| promotedAccumulated | Unsigned32 | `.1.3.6.1.4.1.25461.2.1.2.9.2.1.6` |
+| panCommonEvents | | `.1.3.6.1.4.1.25461.2.1.3` |
+| panCommonEventObjs | | `.1.3.6.1.4.1.25461.2.1.3.1` |
+| panCommonEventDescr | SNMPv2-TC DisplayString | `.1.3.6.1.4.1.25461.2.1.3.1.1` |
+| panCommonEventEvents | | `.1.3.6.1.4.1.25461.2.1.3.2` |
+| panCommonEventEventsV2 | | `.1.3.6.1.4.1.25461.2.1.3.2.0` |
+
+ Dependencies (7) 5 direct · 2 transitive Show tree and compile order Hide dependency details 
+
+ Each imported module is resolved in the importing module's source directory first, then through the normal default-variant rules. 
+
+###### Dependency tree
+
+- PAN-COMMON-MIB paloalto selected
+
+- PAN-GLOBAL-REG paloalto 2 symbols
+
+- SNMPv2-SMI rfc default fallback 3 symbols
+- PAN-GLOBAL-TC paloalto 1 symbol
+
+- PAN-GLOBAL-REG paloalto shared 1 symbol
+- SNMPv2-SMI rfc default fallback shared 1 symbol
+- SNMPv2-TC rfc default fallback 1 symbol
+
+- SNMPv2-SMI rfc shared 1 symbol
+- POWER-ETHERNET-MIB rfc default fallback 2 symbols
+
+- SNMP-FRAMEWORK-MIB rfc 1 symbol
+
+- SNMPv2-CONF rfc 2 symbols
+
+- SNMPv2-SMI rfc shared 3 symbols
+- SNMPv2-SMI rfc shared 4 symbols
+- SNMPv2-TC rfc shared 1 symbol
+- SNMPv2-CONF rfc shared 3 symbols
+- SNMPv2-SMI rfc shared 7 symbols
+- SNMPv2-TC rfc shared 1 symbol
+- SNMPv2-SMI rfc default fallback shared 6 symbols
+- SNMPv2-TC rfc default fallback shared 4 symbols
+
+###### Dependency-first compile order 
+
+1. SNMPv2-SMI rfc
+2. PAN-GLOBAL-REG paloalto
+3. SNMPv2-TC rfc
+4. PAN-GLOBAL-TC paloalto
+5. SNMPv2-CONF rfc
+6. SNMP-FRAMEWORK-MIB rfc
+7. POWER-ETHERNET-MIB rfc
+8. PAN-COMMON-MIB paloalto selected
+
+##### Type Definitions (2)
+
+| FloatValue | OctetString | `range: 0..64` |
+| --- | --- | --- |
+| PowerClassification | Enumeration | `classUNKOWN(0)` `class1(1)` `class2(2)` `class3(3)` `class4(4)` `classUNDEF(5)` `class0(6)` `classOVERCURR(7)` `class5SS(8)` `class6SS(9)` `class7SS(10)` `class8SS(11)` `class4TYPE1(12)` `class5ds(13)` `classrsv(14)` `classMismatch(15)` |
+
+##### Notifications / Traps (1)
+
+| Name | OID | Description |
+| --- | --- | --- |
+| panCommonEventLog panCommonEventDescr | `.1.3.6.1.4.1.25461.2.1.3.2.0.1` | A config/system/firewall/threat log |

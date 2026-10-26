@@ -1,0 +1,36 @@
+{
+    "name": "librenms-plugin/panos-vpn",
+    "description": "LibreNMS plugin that tracks Palo Alto site-to-site tunnels and GlobalProtect users.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "ext-pdo": "*",
+        "librenms/plugin-interfaces": "^1.0"
+    },
+    "suggest": {
+        "illuminate/support": "Required when the plugin runs inside LibreNMS."
+    },
+    "autoload": {
+        "psr-4": {
+            "LibreNmsPlugin\\PanosVpn\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LibreNmsPlugin\\PanosVpn\\PanosVpnServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "php tests/run.php"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    }
+}
